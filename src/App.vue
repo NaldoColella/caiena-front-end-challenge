@@ -1,5 +1,7 @@
 <template>
 	<div id="app">
+		<user-list :users="users"/>
+		
 		<button @click="get()">
 			Get
 		</button>
@@ -9,8 +11,10 @@
 <script>
 
 import Api from './services/api'
+import UserList from '@/components/UserList.vue'
 
 export default {
+	components: { 'user-list' : UserList },
 	data() {
 		return {
 			message: 'Setting up project structure.',
