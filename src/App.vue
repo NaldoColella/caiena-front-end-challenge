@@ -1,10 +1,14 @@
 <template>
 	<div id="app">
+		<button @click="get()">
+			Get
+		</button>
 	</div>
 </template>
 
 <script>
 
+import Api from './services/api'
 
 export default {
 	data() {
@@ -13,6 +17,13 @@ export default {
 			users: []
 		};
 	},
+	methods: {
+		get (){
+			Api.getUsers().then((res) => {
+				this.users = res.items;
+			});
+		}
+	}
 };
 </script>
 
