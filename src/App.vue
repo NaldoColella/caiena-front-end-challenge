@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<user-list :users="users"/>
+		<UserList :users="users"/>
 		
 		<button @click="get()">
 			Get
@@ -9,12 +9,10 @@
 </template>
 
 <script>
-
-import Api from './services/api'
 import UserList from '@/components/UserList.vue'
 
 export default {
-	components: { 'user-list' : UserList },
+	components: { UserList },
 	data() {
 		return {
 			message: 'Setting up project structure.',
@@ -22,11 +20,7 @@ export default {
 		};
 	},
 	methods: {
-		get (){
-			Api.getUsers().then((res) => {
-				this.users = res.items;
-			});
-		}
+		
 	}
 };
 </script>
