@@ -1,11 +1,11 @@
 <template>
-    <div class="UserList">    
-        <user-card
+    <div class="UserList">        
+        <UserCard
 			v-for="(user, index) in users"
 			:user="user"
 			:index="index"
 			:key="user.id"
-		></user-card>
+		/>
     </div>
 </template>
 
@@ -15,12 +15,25 @@ import UserCard from './UserCard'
 export default {
     components: { UserCard },
     props:{
-        users: { required: true }
+        users:{
+            type: Array
+        },
+        totalCount:{
+            type: Number,
+            default: 0
+        },
+        searchText: {
+            type: String,
+            dafault: ''
+        }
+    },
     }
 }  
 </script>
 <style>
-#app {
-  
+.UserList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 </style>
