@@ -1,5 +1,8 @@
 <template>
     <div>
+        <Search
+            @search="getUsers"
+        />
         <UserList
             :users="users"
             :totalCount="totalCount"
@@ -10,6 +13,7 @@
 
 <script>
 import Api from '@/services/api'
+import Search from '@/components/Search'
 import UserList from '@/components/UserList'
 
 export default {   

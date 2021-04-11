@@ -21,7 +21,7 @@ export default {
         .then(response => { 
             if(response.ok){
                 return response.json()    
-            } else{
+            } else {
                 alert("Server returned " + response.status + " : " + response.statusText);
             }                
         })
