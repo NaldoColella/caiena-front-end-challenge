@@ -1,8 +1,9 @@
 <template>
     <div class='UserCard'>
         <img v-bind:src="user.avatar_url"/>
-        <p>{{user.login}}</p>
-        <a v-bind:href="user.html_url">Profile</a>
+        <div class="UserInfo">
+            <a v-bind:href="user.html_url">{{user.login}}</a>
+        </div>
     </div>
 </template>
 
@@ -18,14 +19,56 @@ export default {
 </script>
 <style>
     .UserCard {
-        width: 20%;        
-        padding: 0px 2% 0px 2%;
+        width: 20%;
+        /* padding: 2%; */
         box-sizing: border-box;
+        /* background: #666; */
+        text-align: center;
+        position: relative;
     }
-    .UserCard img {
-        border-radius: 50%;
+    .UserCard:hover .UserInfo{
+        opacity: 1;
     }
-    .UserCard img, .UserCard p, .UserCard a {
+    .UserCard:hover::after{
+        opacity: 0.6;
+        z-index: 7;
+    }
+    .UserCard:after{
+        background:rgb(125 125 125);
+        opacity: 0;
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0px;
+        transition: 0.3s;
+        top: 0px;
+    }
+    .UserCard img{
         width:100%;
+    }
+    .UserInfo{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        z-index: 8;
+        height: 100%;
+        opacity: 0;
+        transition: 0.3s;
+    }
+    .UserInfo a{
+        text-decoration: none;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+        font-family: fantasy;
+        color: #fff;
+        font-size: 20px;
+        letter-spacing: 2px;
+        padding: 0px 20px;
+        word-break: break-word;
     }
 </style>

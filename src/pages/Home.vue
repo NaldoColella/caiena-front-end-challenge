@@ -5,8 +5,9 @@
         />
         <UserList
             :users="users"
-            :totalCount="totalCount"
+            :pageCount="pageCount"
             :searchText="searchText"
+            @pageChange="getUsers"
         />
     </div>
 </template>
@@ -20,15 +21,15 @@ export default {
     components: { Search, UserList },
     data:() => ({
         users: [],
-        totalCount: 0,
+        pageCount: 0,
         searchText: ''
     }),
     methods:{
-        getUsers(value){
+        getUsers(value, page = 1){
             this.searchText = value;
-            Api.getUsers(value).then((res) => {
+            Api.getUsers(value, page).then((res) => {
 				this.users = res.items;
-                this.totalCount = res.total_count
+                this.pageCount = Math.ceil(res.total_count / 20);
 			});
         }
     },

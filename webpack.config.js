@@ -17,6 +17,10 @@ module.exports = {
       '@': path.resolve(__dirname, 'src'),
     }
   },
+  devServer: {
+    open: true,
+    hot: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
