@@ -22,9 +22,11 @@
 
 <script>
 import BaseButton from "./BaseButton.vue";
+import BasePaginationTrigger from "./BasePaginationTrigger.vue";
 export default {
   components: {
-    BaseButton
+    BaseButton,
+    BasePaginationTrigger
   },
   props: {
     currentPage: {

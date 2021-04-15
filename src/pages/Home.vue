@@ -21,7 +21,7 @@ export default {
     components: { Search, UserList },
     data:() => ({
         users: [],
-        pageCount: 0,
+        pageCount: 1,
         searchText: ''
     }),
     methods:{
